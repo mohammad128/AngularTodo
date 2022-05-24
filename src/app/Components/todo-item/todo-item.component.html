@@ -1,0 +1,23 @@
+<div *ngIf="todo" class="bg-gray-300 p-4 flex flex-row items-center gap-4 justify-between">
+
+    <div class="flex flex-row gap-4 items-center">
+        <span *ngIf="todo.status === 'completed';else elseBlock" class="w-4 h-4 inline-block rounded-full bg-green-600"></span>
+        <ng-template #elseBlock>
+            <span class="w-4 h-4 inline-block rounded-full bg-red-600"></span>
+        </ng-template>
+        <span class="inline-block font-semibold text-sm text-gray-700">{{todo.title}}</span>
+    </div>
+
+    <div class="flex flex-row gap-4">
+        <span
+            (click)="onDeleteTodo.emit(todo)"
+            class="inline-block hover:text-rad-500 cursor-pointer w-[30px] h-[30px] flex flex-row items-center justify-center rounded-full bg-red-300 text-white hover:bg-red-600"
+         >
+            ✖
+        </span>
+        <span class="inline-block hover:text-rad-500 cursor-pointer w-[30px] h-[30px] flex flex-row items-center justify-center rounded-full bg-green-300 text-white hover:bg-green-600">
+            ✐
+        </span>
+    </div>
+
+</div>

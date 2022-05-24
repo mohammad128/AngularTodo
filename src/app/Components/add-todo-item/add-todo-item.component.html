@@ -1,0 +1,19 @@
+<div class="bg-gray-100/30 backdrop-blur-sm fixed top-0 right-0 bottom-0 left-0 min-h-screen min-w-full flex flex-col items-center justify-center">
+    <span (click)="onClose.emit()" class="absolute top-10 right-10 cursor-pointer inline-block text-2xl text-gray-800 w-10 h-10 bg-white rounded-full flex flex-row justify-center items-center">X</span>
+    <div class="w-full max-w-lg rounded-2xl p-4 flex flex-col gap-4 shadow-3xl  bg-white" >
+        
+        <h3 class="font-bold text-lg text-center">Add New Task</h3>
+        
+        <input [(ngModel)]="title" type="text" class="px-4 w-full border  border-gray-300  transition duration-300 leading-10 rounded-2xl focus:ring-2 focus:ring-purple-600 focus:ring-offset-4 focus:outline-none">
+        
+        <select [(ngModel)]="status" class="w-full border border-gray-300 px-4 py-2 transition duration-300 rounded-2xl focus:ring-2 focus:ring-purple-600 focus:ring-offset-4 focus:outline-none">
+            <option value="completed">COMPLETED</option>
+            <option value="not_completed">Not COMPLETED</option>
+        </select>
+        
+        <input [disabled]="!(title && status)" (click)="onSave.emit({'title':title, 'status':status})" type="button" 
+            class="w-full disabled:bg-gray-100 disabled:text-gray-300 border border-gray-300 cursor-pointer hover:bg-purple-500 transition duration-300 leading-10 rounded-2xl focus:ring-2 focus:ring-purple-600 focus:ring-offset-4 focus:outline-none" value="Save"
+        />
+        <br>
+    </div>
+</div>
